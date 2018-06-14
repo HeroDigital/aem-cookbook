@@ -126,6 +126,7 @@ action :remove do
 
   if new_resource.dynamic_cluster
     log 'Finding replication hosts dynamically...'
+    Chef::Log.info('Finding replication hosts dynamically...')
     hosts = []
     search_criteria = AEM::Helpers.build_cluster_search_criteria(role, cluster_name)
     search(:node, search_criteria) do |n|
